@@ -1,0 +1,147 @@
+@prefix geoliteral: <http://www.bigdata.com/rdf/geospatial/literals/v1#> .
+@prefix hsf: <http://data.open.ac.uk/kmi/hans/> .
+
+hsf:P1
+    rdf:type hsf:Point ;
+    rdfs:label "Point P1" ;
+	hsf:hasCoordinate "-1.49#1.35"^^geoliteral:lat-lon .
+
+hsf:P2
+    rdf:type hsf:Point ;
+    rdfs:label "Point P2" ;
+	hsf:hasCoordinate "2.75#1.35"^^geoliteral:lat-lon .
+
+hsf:P3
+    rdf:type hsf:Point ;
+    rdfs:label "Point P4" ;
+	hsf:hasCoordinate "2.75#-2.08"^^geoliteral:lat-lon .
+
+hsf:P4
+    rdf:type hsf:Point ;
+    rdfs:label "Point P2" ;
+	hsf:hasCoordinate "-1.49#-2.08"^^geoliteral:lat-lon .
+
+hsf:P10
+    rdf:type hsf:Point ;
+    rdfs:label "Point P10" ;
+	hsf:hasCoordinate "-0.484#-0.628"^^geoliteral:lat-lon .
+	
+hsf:PolyA
+    rdf:type hsf:Poly ;
+    rdfs:label "Poly A" ;
+	hsf:hasPoint hsf:P1 ;
+	hsf:hasPoint hsf:P2 ;
+	hsf:hasPoint hsf:P3 ;
+	hsf:hasPoint hsf:P4 .
+
+hsf:Poly1
+    rdf:type hsf:Poly ;
+    rdfs:label "Poly 1" ;
+	hsf:hasPoint hsf:P1 ;
+	hsf:hasPoint hsf:P2 ;
+	hsf:hasPoint hsf:P3 ;
+	hsf:hasPoint hsf:P4 .
+
+hsf:P5
+    rdf:type hsf:Point ;
+    rdfs:label "Point P5" ;
+	hsf:hasCoordinate "-2.3#-4.05"^^geoliteral:lat-lon .
+
+hsf:P6
+    rdf:type hsf:Point ;
+    rdfs:label "Point P6" ;
+	hsf:hasCoordinate "1.75#-4.05"^^geoliteral:lat-lon .
+
+hsf:P7
+    rdf:type hsf:Point ;
+    rdfs:label "Point P7" ;
+	hsf:hasCoordinate "1.75#-9.4"^^geoliteral:lat-lon .
+	
+hsf:P8
+    rdf:type hsf:Point ;
+    rdfs:label "Point P8" ;
+	hsf:hasCoordinate "-2.3#-9.4"^^geoliteral:lat-lon .
+
+hsf:P9
+    rdf:type hsf:Point ;
+    rdfs:label "Point P9" ;
+	hsf:hasCoordinate "-0.182#-5.89"^^geoliteral:lat-lon .
+
+
+
+hsf:P11
+    rdf:type hsf:Point ;
+    rdfs:label "Point P5" ;
+	hsf:hasCoordinate "-29.7#-5.15"^^geoliteral:lat-lon .
+
+hsf:P12
+    rdf:type hsf:Point ;
+    rdfs:label "Point P6" ;
+	hsf:hasCoordinate "-28.6#-5.15"^^geoliteral:lat-lon .
+
+hsf:P13
+    rdf:type hsf:Point ;
+    rdfs:label "Point P7" ;
+	hsf:hasCoordinate "-28.6#-13.0"^^geoliteral:lat-lon .
+	
+hsf:P14
+    rdf:type hsf:Point ;
+    rdfs:label "Point P8" ;
+	hsf:hasCoordinate "-29.7#-13.0"^^geoliteral:lat-lon .
+
+hsf:P15
+    rdf:type hsf:Point ;
+    rdfs:label "Point P9" ;
+	hsf:hasCoordinate "-28.8#-7.2"^^geoliteral:lat-lon .
+
+hsf:Poly2
+    rdf:type hsf:Poly ;
+    rdfs:label "Poly 2" ;
+	hsf:hasPoint hsf:P5 ;
+	hsf:hasPoint hsf:P6 ;
+	hsf:hasPoint hsf:P7 ;
+	hsf:hasPoint hsf:P8 .
+
+hsf:Poly3
+    rdf:type hsf:Poly ;
+    rdfs:label "Poly 3" ;
+	hsf:hasPoint hsf:P11 ;
+	hsf:hasPoint hsf:P12 ;
+	hsf:hasPoint hsf:P13 ;
+	hsf:hasPoint hsf:P14 .
+
+hsf:RoboticsLab
+	# area inside the PlayRoom
+    rdf:type hsf:Area ;
+    rdfs:label "Robotics Lab" ;
+	hsf:hasSouthWestPoint hsf:P4 ;
+	hsf:hasNorthEastPoint hsf:P2 ;
+	hsf:hasCenter hsf:P10 ;
+	hsf:hasArea hsf:Poly1 ;
+	hsf:hasRestriction hsf:HeaterRestriction .
+
+hsf:Activity2
+	# Activity 2
+    rdf:type hsf:Area ;
+    rdfs:label "Activity 2" ;
+	hsf:hasSouthWestPoint hsf:P8 ;
+	hsf:hasNorthEastPoint hsf:P6 ;
+	hsf:hasCenter hsf:P9 ;
+	hsf:hasArea hsf:Poly2 ;
+	hsf:hasRestriction hsf:HeaterRestriction .
+
+hsf:PodiumBack
+	# Back of the Podium
+    rdf:type hsf:Area ;
+    rdfs:label "Back of the Podium" ;
+	hsf:hasSouthWestPoint hsf:P14 ;
+	hsf:hasNorthEastPoint hsf:P12 ;
+	hsf:hasCenter hsf:P15 ;
+	hsf:hasArea hsf:Poly3 ;
+	hsf:hasRestriction hsf:HeaterRestriction .
+
+hsf:HeaterRestriction
+	rdf:type hsf:RestrictionRule ;
+	rdfs:label "Electric heater restricted area" ;
+	hsf:cause "is an area where electric heaters are forbidden" ;
+	hsf:notAllowedItems hsf:Heater .
